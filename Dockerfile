@@ -1,4 +1,4 @@
-FROM jenkins-android-v1
+FROM itvincent/jenkins-android-v1:1.1
 USER root
 # 使用方式: docker build -t jenkins-android-flutter-v1 .
 # 镜像打标签： docker tag jenkins-android-flutter-v1 itvincent/jenkins-android-flutter-v1:1.0
@@ -25,11 +25,13 @@ ADD flutter_linux_1.22.6-stable.tar.xz /opt
 # RUN yes | flutter doctor --android-licenses
 RUN yes | sdkmanager --licenses
 
+# export DOCKERDATA_HOME=/opt/docker_data/
 # docker run \
 #   -u root \
 #   -d \
+#   --restart always \
 #   --name jenkins-android-flutter-v1 \
 #   -p 8080:8080 \
 #   -p 50000:50000 \
 #   -v $DOCKERDATA_HOME/jenkins:/var/jenkins_home \
-#   jenkins-android-flutter-v1:1.0
+#   itvincent/jenkins-android-flutter-v1:1.2
