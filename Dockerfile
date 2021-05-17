@@ -7,6 +7,9 @@ USER root
 
 # export FLUTTER_HOME=/opt/flutter
 ENV FLUTTER_HOME=/opt/flutter
+# v1.1增加设置flutter的国内镜像
+ENV FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+ENV PUB_HOSTED_URL=https://pub.flutter-io.cn
 
 # 设置环境变量: 把 flutter sdk加入到 PATH 中
 # export PATH=$FLUTTER_HOME/bin:$PATH
@@ -29,4 +32,4 @@ RUN yes | sdkmanager --licenses
 #   -p 8080:8080 \
 #   -p 50000:50000 \
 #   -v $DOCKERDATA_HOME/jenkins:/var/jenkins_home \
-#   jenkins-android-flutter-v1
+#   jenkins-android-flutter-v1:1.0
